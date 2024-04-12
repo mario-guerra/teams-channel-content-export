@@ -1,0 +1,45 @@
+# Microsoft Teams Channel Data Export for RAG-Enhanced Chatbot
+
+This repository contains three Python scripts that facilitate the extraction of data from Microsoft Teams channels and its transformation into question-answer pairs for use in a Retrieval-Augmented Generation (RAG) enhanced chatbot.
+
+## Overview
+
+The `channel_query.py` script fetches and formats messages and their replies from Microsoft Teams using the Microsoft Graph API. The `convert_channel_data_json.py` script takes the JSON data file and extracts question-answer pairs, creating a new JSON file for each pair using the OpenAI API. The `convert_channel_data_markdown.py` script performs a similar function but generates the question-answer pairs as markdown, with the question set as a heading and the answer as content following the heading.
+
+## Prerequisites
+
+- Python 3
+- Required Python packages: `requests`, `json`, `html`, `re`, `bs4`, `python-dotenv`, `openai`, `argparse`, `asyncio`
+- Access to Microsoft Graph API and OpenAI API
+
+## Setup
+
+1. Clone the repository to your local machine.
+2. Install the required Python packages.
+3. Obtain an access token from the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+4. Replace the values in the .env file with your actual `ACCESS_TOKEN`, `GROUP_ID`, and `CHANNEL_ID`.
+5. Save the .env file in the same directory as the scripts.
+
+## Usage
+
+### channel_query.py
+
+This script fetches and formats messages and their replies from Microsoft Teams using the Microsoft Graph API. It cleans the HTML content of the messages and formats them into a JSON structure.
+
+To run the script, use the command: `python channel_query.py <output_file.json> <date_from>`
+
+### convert_channel_data_json.py
+
+This script extracts question-answer pairs from a given JSON data file and creates a new JSON file for each pair. It uses the OpenAI API to generate questions and answers based on the input data.
+
+To run the script, use the command: `python convert_channel_data.py <input_file.json> <output_dir>`
+
+### convert_channel_data_markdown.py
+
+This script extracts question-answer pairs from a given JSON data file and creates a new markdown file for each pair. It uses the OpenAI API to generate questions and answers based on the input data. The question is set as a heading and the answer as content following the heading in the markdown file.
+
+To run the script, use the command: `python convert_channel_data_markdown.py <input_file.json> <output_dir>`
+
+## License
+
+MIT
