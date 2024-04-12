@@ -4,20 +4,20 @@ This repository contains three Python scripts that facilitate the extraction of 
 
 ## Overview
 
-The `channel_query.py` script fetches and formats messages and their replies from Microsoft Teams using the Microsoft Graph API. The `convert_channel_data_json.py` script takes the JSON data file and extracts question-answer pairs, creating a new JSON file for each pair using the OpenAI API. The `convert_channel_data_markdown.py` script performs a similar function but generates the question-answer pairs as markdown, with the question set as a heading and the answer as content following the heading.
+The `channel_query.py` script fetches and formats messages and their replies from Microsoft Teams using the Microsoft Graph API. The `convert_channel_data_json.py` script takes the JSON output file produced by the `channel_query.py` script and extracts question-answer pairs, creating a new JSON file for each pair using Azure OpenAI. The `convert_channel_data_markdown.py` script performs a similar function but generates the question-answer pairs as markdown, with the question set as a heading and the answer as content following the heading.
 
 ## Prerequisites
 
 - Python 3
 - Required Python packages: `requests`, `json`, `html`, `re`, `bs4`, `python-dotenv`, `openai`, `argparse`, `asyncio`
-- Access to Microsoft Graph API and OpenAI API
+- Access to Microsoft Graph API and Azure OpenAI
 
 ## Setup
 
 1. Clone the repository to your local machine.
 2. Install the required Python packages.
 3. Obtain an access token from the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-4. Replace the values in the .env file with your actual `ACCESS_TOKEN`, `GROUP_ID`, and `CHANNEL_ID`.
+4. Replace the values in the .env file with your actual `ACCESS_TOKEN`, `GROUP_ID`, and `CHANNEL_ID`, as well as your Azure OpenAI endpoint, API key, deployment, and API version.
 5. Save the .env file in the same directory as the scripts.
 
 ## Usage
@@ -26,7 +26,7 @@ The `channel_query.py` script fetches and formats messages and their replies fro
 
 This script fetches and formats messages and their replies from Microsoft Teams using the Microsoft Graph API. It cleans the HTML content of the messages and formats them into a JSON structure.
 
-To run the script, use the command: `python channel_query.py <output_file.json> <date_from>`
+To run the script, use the command: `python channel_query.py <output_file.json> <date_from as YYYY-MM-DD>`
 
 ### convert_channel_data_json.py
 
