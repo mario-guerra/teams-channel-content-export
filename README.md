@@ -2,6 +2,8 @@
 
 This repository contains three Python scripts that facilitate the extraction of data from Microsoft Teams channels and its transformation into question-answer pairs for use in a Retrieval-Augmented Generation (RAG) enhanced chatbot.
 
+To learn how to use Teams channel data to power a smart chatbot, check out the related [blog post](https://marioguerra.xyz/building-intelligent-chatbots-with-microsoft-teams-data/).
+
 ## Overview
 
 The `channel_query.py` script fetches and formats messages and their replies from Microsoft Teams using the Microsoft Graph API. The `convert_channel_data_json.py` script takes the JSON output file produced by the `channel_query.py` script and extracts question-answer pairs, creating a new JSON file for each pair using Azure OpenAI. The `convert_channel_data_markdown.py` script performs a similar function but generates the question-answer pairs as markdown, with the question set as a heading and the answer as content following the heading.
