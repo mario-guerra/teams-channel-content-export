@@ -1,4 +1,4 @@
-# Microsoft Teams Channel Data Export for RAG-Enhanced Chatbot
+# Microsoft Teams Channel Data Export for RAG-Enhanced AI Chatbot
 
 This repository contains three Python scripts that facilitate the extraction of data from Microsoft Teams channels and its transformation into question-answer pairs for use in a Retrieval-Augmented Generation (RAG) enhanced chatbot.
 
